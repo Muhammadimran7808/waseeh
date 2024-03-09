@@ -1,0 +1,111 @@
+/* ------secondary header start--------*/
+.secondary-header {
+    background-color: black;
+    position: static;
+
+}
+
+.unorderd-list {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    overflow-x: auto;
+
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.secondary-header .navbar .unorderd-list li {
+    color: white;
+    white-space: nowrap;
+    list-style: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: .05em;
+    padding-top: 13px;
+    padding-bottom: 11px;
+    font-size: 13px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    margin-top: 11px;
+    left: 0%;
+    background-color: white;
+    width: 100%;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 99;
+
+}
+
+.dropdown a:hover {
+    color: #F58634;
+    text-decoration: underline;
+}
+
+.dropdown:hover .dropdown-content {
+    /* Show dropdown content on hover */
+    display: block;
+}
+
+.dropdown:hover .dropdown-content-small {
+    /* Show dropdown content on hover */
+    display: block;
+}
+
+.dropdown-content-small {
+    display: none;
+    position: absolute;
+    margin-top: 11px;
+    background-color: white;
+    width: 200px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 99;
+
+}
+
+.dropdown-content a {
+    color: rgb(112, 112, 112);
+    font-size: 10px;
+    padding: 12px 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content-small a {
+    color: rgb(112, 112, 112);
+    font-size: 10px;
+    padding: 12px 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: white
+}
+
+/* ---------------secondary header end-------------- */
+
+
+/*--------------- product cart start----------- */
+.product-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    text-align: right;
+    pointer-events: none;
+}
+
+.product-label .sale-label {
+    background-color: #e28206;
+    color: #fff;
+    margin-bottom: 5px;
+    padding: 4px 7px 3px;
+}
+
+/*--------------- product cart end----------- */
