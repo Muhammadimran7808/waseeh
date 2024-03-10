@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 
-body{
+*, body{
     font-family: 'Poppins', sans-serif, Arial;
     font-weight: 400;
     font-size: 12px;
@@ -16,4 +16,8 @@ body{
 }
 html, body *{
     box-sizing: border-box;
+}
+
+img, button{
+    user-select: none;
 }

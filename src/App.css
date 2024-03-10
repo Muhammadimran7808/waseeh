@@ -103,7 +103,7 @@
 /*--------------- product cart start----------- */
 .product-label {
     position: absolute;
-    top: 0;
+    top: 3px;
     right: 0;
     z-index: 2;
     text-align: right;
@@ -119,5 +119,6 @@
 
 .card-container:hover .card-hover-content{
     display: block;
+    
 }
 /*--------------- product cart end----------- */

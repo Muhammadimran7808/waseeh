@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
-import Layout from "../layout/Layout";
-import HeroSection from "../layout/HeroSection";
+import Layout from "../components/layout/Layout";
+import HeroSection from "../components/layout/HeroSection";
 import axios from "axios";
 import { BiSolidHeartCircle } from "react-icons/bi";
+import { useModal } from "../context/modal";
+import ProductQuickView from "../components/layout/ProductQuickView";
 
 const Home = () => {
+  const [modalOpen, setModalOpen] = useModal();
+  const [quickViewProduct, setquickViewProduct] = useState([]);
+
   const [products, setProducts] = useState([
     {
       id: 48,
@@ -43,7 +48,7 @@ const Home = () => {
       images: [
         {
           id: 41,
-          src: "https://www.waseeh.com/cdn/shop/files/coffee-and-accent-tables_300x.jpg?v=1709793595",
+          src: "https://www.waseeh.com/cdn/shop/files/coffee-and-accent-tables.jpg?v=1709793595",
           name: "w3",
           alt: "",
         },
@@ -1320,13 +1325,13 @@ const Home = () => {
           NEW ARRIVALS
         </h1>
         {/* product container */}
-        <div className="flex flex-wrap justify-center gap-x-8 items-center md:w-[85%] sm:w-[90%] sm:mx-auto">
-          {products.map((product) => (
+        <div className="flex flex-wrap justify-center gap-x-8 gap-y-5 items-center md:w-[85%] sm:w-[90%] sm:mx-auto">
+          {products.map((product, i) => (
             /*card container */
-            <div className="card-container relative w-[200px] h-[400px]">
+            <div key={i} className="card-container relative w-[200px] h-[400px]">
               {/* product card */}
-              <div key={product.id} className="">
-                {product.images.length > 0 && (
+              <div>
+                {product?.images?.length > 0 && (
                   <img
                     src={product.images[0].src}
                     alt={product.images[0].alt}
@@ -1341,7 +1346,7 @@ const Home = () => {
                     {Math.floor(
                       ((product.regular_price - product.price) /
                         product.regular_price) *
-                        100
+                      100
                     )}
                     %
                   </strong>
@@ -1369,13 +1374,18 @@ const Home = () => {
                     Add to cart
                   </button>
                   <div>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
+                    <div>
+                      <i className="fa-regular fa-star" />
+                      <i className="fa-regular fa-star" />
+                      <i className="fa-regular fa-star" />
+                      <i className="fa-regular fa-star" />
+                      <i className="fa-regular fa-star" />
+                    </div>
+
                   </div>
-                  <button className="absolute bg-[#e28206] text-gray-200 w-full bottom-0 uppercase px-1">
+                  <button
+                    onClick={() => {setModalOpen(true); setquickViewProduct(product)}}
+                    className="absolute bg-[#e28206] text-gray-200 w-full bottom-0 uppercase px-1">
                     quick view
                   </button>
                 </div>
@@ -1384,6 +1394,7 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <ProductQuickView product={quickViewProduct}/>
     </Layout>
   );
 };
