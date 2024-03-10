@@ -1,39 +1,37 @@
 /* ------secondary header start--------*/
 .secondary-header {
     background-color: black;
-    position: static;
-
 }
 
 .unorderd-list {
     display: flex;
+    padding: 0 10px;
     gap: 3rem;
-    justify-content: center;
     overflow-x: auto;
 
 }
-
-.navbar {
-    display: flex;
-    justify-content: center;
+.dropdown a {
+    padding: 9px 9px;
+}
+.dropdown a:hover {
+    color: #F58634;
 }
 
-.secondary-header .navbar .unorderd-list li {
+.navbar .unorderd-list li {
     color: white;
     white-space: nowrap;
     list-style: none;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: .05em;
-    padding-top: 13px;
-    padding-bottom: 11px;
+    padding: 13px 0;
     font-size: 13px;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    margin-top: 11px;
+    margin: 11px 0;
     left: 0%;
     background-color: white;
     width: 100%;
@@ -41,19 +39,35 @@
     z-index: 99;
 
 }
-
-.dropdown a:hover {
-    color: #F58634;
-    text-decoration: underline;
+.dropdown-content a {
+    color: rgb(110, 110, 110);
+    font-size: 11px;
+    margin: 12px 10px;
+    text-decoration: none;
+    display:block;
+    text-transform: capitalize;
+    font-weight: 400;
 }
 
+.dropdown-content a span::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #e28206;
+    transition: width .3s;
+}
+
+.dropdown-content a span:hover::after {
+    width: 100%;
+}
+
+
 .dropdown:hover .dropdown-content {
-    /* Show dropdown content on hover */
     display: block;
 }
 
 .dropdown:hover .dropdown-content-small {
-    /* Show dropdown content on hover */
     display: block;
 }
 
@@ -61,27 +75,22 @@
     display: none;
     position: absolute;
     margin-top: 11px;
+    padding: 5px 17px;
     background-color: white;
     width: 200px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 99;
-
-}
-
-.dropdown-content a {
-    color: rgb(112, 112, 112);
-    font-size: 10px;
-    padding: 12px 10px;
-    text-decoration: none;
-    display: block;
 }
 
 .dropdown-content-small a {
-    color: rgb(112, 112, 112);
+    color: rgb(110, 110, 110);
+    text-transform: capitalize;
+    font-weight: 400;
     font-size: 10px;
-    padding: 12px 10px;
+    padding: 12px 0px;
     text-decoration: none;
     display: block;
+    border-bottom: 1px solid rgb(232, 232, 232);
 }
 
 .dropdown-content a:hover {
@@ -108,4 +117,7 @@
     padding: 4px 7px 3px;
 }
 
+.card-container:hover .card-hover-content{
+    display: block;
+}
 /*--------------- product cart end----------- */

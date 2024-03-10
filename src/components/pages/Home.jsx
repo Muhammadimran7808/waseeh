@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Layout from "../layout/Layout";
 import HeroSection from "../layout/HeroSection";
 import axios from "axios";
+import { BiSolidHeartCircle } from "react-icons/bi";
 
 const Home = () => {
   const [products, setProducts] = useState([
@@ -1313,6 +1314,7 @@ const Home = () => {
   return (
     <Layout>
       <HeroSection />
+
       <div>
         <h1 className="text-center text-2xl font-semibold my-8">
           NEW ARRIVALS
@@ -1320,42 +1322,64 @@ const Home = () => {
         {/* product container */}
         <div className="flex flex-wrap justify-center gap-x-8 items-center md:w-[85%] sm:w-[90%] sm:mx-auto">
           {products.map((product) => (
-            /* product cart */
-            <div key={product.id} className="relative w-[200px] h-[400px]">
-              {product.images.length > 0 && (
-                <img
-                  src={product.images[0].src}
-                  alt={product.images[0].alt}
-                  className="w-[200px] h-[200px] object-cover "
-                />
-              )}
+            /*card container */
+            <div className="card-container relative w-[200px] h-[400px]">
+              {/* product card */}
+              <div key={product.id} className="">
+                {product.images.length > 0 && (
+                  <img
+                    src={product.images[0].src}
+                    alt={product.images[0].alt}
+                    className="w-[200px] h-[200px] object-cover "
+                  />
+                )}
 
-              {/* discount lable */}
-              <div className="product-label">
-                <strong className="label sale-label">
-                  -
-                  {Math.floor(
-                    ((product.regular_price - product.price) /
-                      product.regular_price) *
-                      100
-                  )}
-                  %
-                </strong>
-                <br />
+                {/* discount lable */}
+                <div className="product-label">
+                  <strong className="label sale-label">
+                    -
+                    {Math.floor(
+                      ((product.regular_price - product.price) /
+                        product.regular_price) *
+                        100
+                    )}
+                    %
+                  </strong>
+                  <br />
+                </div>
+
+                <div
+                  className="mt-2 px-1 text-[13px] text-gray-700 text-center font-[550]"
+                  dangerouslySetInnerHTML={{ __html: product.description }}
+                ></div>
+
+                <div className="flex flex-wrap justify-center text-[14px] gap-3 mt-2 font-semibold">
+                  <p className="line-through text-gray-400">
+                    Rs.{product.regular_price}
+                  </p>
+                  <p className="text-[#F58634]">Rs.{product.price}</p>
+                </div>
               </div>
 
-              <div
-                className="mt-2 px-1 text-[13px] text-gray-700 text-center font-[550]"
-                dangerouslySetInnerHTML={{ __html: product.description }}
-              ></div>
-
-              <div className="flex flex-wrap justify-center text-[14px] gap-3 mt-2 font-semibold">
-                <p className="line-through text-gray-400">
-                  Rs.{product.regular_price}
-                </p>
-                <p className="text-[#F58634]">Rs.{product.price}</p>
+              {/* When hover on product card */}
+              <div className="card-hover-content hidden bg-[#f7f5f5b9] absolute top-0 w-full h-[200px]  z-[1]">
+                <div className="h-[200px] flex flex-col gap-4 pt-6 items-center">
+                  <BiSolidHeartCircle size={25} className="text-[#e28206]" />
+                  <button className="w-full border border-black bg-white hover:bg-black hover:text-white py-[8px] text-[14px] font-semibold uppercase">
+                    Add to cart
+                  </button>
+                  <div>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <button className="absolute bg-[#e28206] text-gray-200 w-full bottom-0 uppercase px-1">
+                    quick view
+                  </button>
+                </div>
               </div>
-
             </div>
           ))}
         </div>
