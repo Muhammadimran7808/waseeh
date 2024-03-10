@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Modal } from "antd";
 import { useModal } from "../../context/modal";
+import ProductQuantityCounter from "../ProductQuantityCounter";
 
 const ProductQuickView = ({ product }) => {
   const [modalOpen, setModalOpen] = useModal();
+  const [count, setCount] = useState(1);
+
+  const setDecrease = () => {
+    count > 1 ? setCount(count - 1) : setCount(1);
+  };
+  const setIncrease = () => {
+    setCount(count + 1);
+  };
   return (
     <div>
       <Modal
@@ -43,6 +52,28 @@ const ProductQuickView = ({ product }) => {
                 Rs.{product.regular_price}
               </p>
               <p className="text-[#F58634] text-2xl">Rs.{product.price}</p>
+            </div>
+
+            <div>
+              <div className="mt-4">Quentity :</div>
+              <ProductQuantityCounter
+                quantity={count}
+                setDecrease={setDecrease}
+                setIncrease={setIncrease}
+              />
+            </div>
+
+            <div>
+              <div>Subtotal : Rs.{product.price * count}</div>
+            </div>
+
+            <div className="mt-4">
+              <button className="bg-[#000] text-white hover:bg-white hover:text-black border border-black px-10 py-3 uppercase mr-7">
+                Add to cart
+              </button>
+              <button className="bg-white hover:text-white hover:bg-[#000] text-black border border-gray-300 px-10 py-3 uppercase">
+                🖤 ADD TO WISH LIST
+              </button>
             </div>
           </div>
         </div>

@@ -1,0 +1,124 @@
+footer {
+    background-color: #f58634;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    /* Centering the content */
+
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    /* flex-wrap: wrap; */
+    margin-left: 230px;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 0 20px;
+    text-align: left;
+    /* Align text to the left */
+}
+
+.footer-section h3 {
+    font-size: 13px;
+    margin-bottom: 12px;
+    color: #3b3b3b;
+    text-transform: uppercase;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+    /* Smooth transition for color change */
+    font-size: 12px;
+    line-height: 22px;
+}
+
+.footer-section ul li a:hover {
+    color: black;
+    /* Change link color to black on hover */
+}
+
+
+/* this style is about the input field */
+.email-form input[type="email"] {
+    padding: 8px;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 0;
+    margin-right: 10px;
+    color: white;
+    background-color: transparent;
+    outline: none;
+}
+
+/* this style is about the placeholder in the input field */
+.email-form input[type="email"]::placeholder {
+    color: white;
+    margin-right: 5px;
+    min-width: 293px;
+}
+
+/* this styling is about submit button */
+.email-form button {
+    padding: 8px 15px;
+    background-color: #3b3b3b;
+    /* Adjusted submit button background color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    transition: background-color 0.3s;
+    /* Smooth transition for background color change */
+    border-color: #3b3b3b;
+    text-transform: uppercase;
+}
+
+/* this styling is about submit button when mouse hover */
+.email-form button:hover {
+    background-color: white;
+    /* Change button background color to white on hover */
+    color: black;
+    /* Change text color to black on hover */
+}
+
+/* this is the main parent of input field and submit button */
+.email-form {
+    display: flex;
+    margin-right: 250px;
+}
+
+/* Style for the social media section */
+.social-media-info {
+    text-align: left;
+
+}
+
+.social-media-info h2 {
+    font-size: 10px;
+    color: black;
+}
+
+.like-button,
+.share-button {
+    background-color: blue;
+    color: white;
+    padding: 8px 12x;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 3px;
+
+}
