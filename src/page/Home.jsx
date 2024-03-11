@@ -41,6 +41,11 @@ const Homepage = ()=>{
     },[])
     return(
         <>
+        {
+          Array.isArray(data) && data.map((products)=>(
+            <h1>{products.name}</h1>
+          ))
+        }
         </>
     )
 }
