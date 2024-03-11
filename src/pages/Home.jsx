@@ -1291,30 +1291,32 @@ const Home = () => {
       },
     },
   ]);
-  // let defaultHeaders = {
-  //   params: {},
-  //   withCredentials: true,
-  //   auth: {
-  //     username: "ck_c82fe7f124dada7a39c6bde2996c604428840dbb",
-  //     password: "cs_a4ad050a78b860f8deb9c90f102b7821ba76b0db",
-  //   },
-  // };
 
-  // const getProducts = async () => {
-  //   try {
-  //     const res = await axios.get(
-  //       "http://localhost/wp/wp-json/wc/v3/products",
-  //       defaultHeaders
-  //     );
-  //     setProducts(res?.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const apikey = () => {
+    const username = "ck_c82fe7f124dada7a39c6bde2996c604428840dbb";
+    const password = "cs_a4ad050a78b860f8deb9c90f102b7821ba76b0db";
+    const auth = btoa(`${username}: ${password}`);
+    return auth;
+  };
+  const getProducts = async () => {
+    try {
+      const res = await axios.get(
+        "http://localhost/wp/wp-json/wc/v3/products",
+        {
+          headers: {
+            Authorization: `Basic ${apikey()}`,
+          },
+        }
+      );
+      setProducts(res?.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  // useEffect(() => {
-  //   getProducts();
-  // }, []);
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   return (
     <Layout>
@@ -1328,7 +1330,10 @@ const Home = () => {
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-5 items-center md:w-[85%] sm:w-[90%] sm:mx-auto">
           {products.map((product, i) => (
             /*card container */
-            <div key={i} className="card-container relative w-[200px] h-[400px]">
+            <div
+              key={i}
+              className="card-container relative w-[200px] h-[400px]"
+            >
               {/* product card */}
               <div>
                 {product?.images?.length > 0 && (
@@ -1346,7 +1351,7 @@ const Home = () => {
                     {Math.floor(
                       ((product.regular_price - product.price) /
                         product.regular_price) *
-                      100
+                        100
                     )}
                     %
                   </strong>
@@ -1381,11 +1386,14 @@ const Home = () => {
                       <i className="fa-regular fa-star" />
                       <i className="fa-regular fa-star" />
                     </div>
-
                   </div>
                   <button
-                    onClick={() => {setModalOpen(true); setquickViewProduct(product)}}
-                    className="absolute bg-[#e28206] text-gray-200 w-full bottom-0 uppercase px-1">
+                    onClick={() => {
+                      setModalOpen(true);
+                      setquickViewProduct(product);
+                    }}
+                    className="absolute bg-[#e28206] text-gray-200 w-full bottom-0 uppercase px-1"
+                  >
                     quick view
                   </button>
                 </div>
@@ -1394,7 +1402,7 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <ProductQuickView product={quickViewProduct}/>
+      <ProductQuickView product={quickViewProduct} />
     </Layout>
   );
 };

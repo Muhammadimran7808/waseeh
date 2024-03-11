@@ -1,6 +1,7 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home'
+import CartPage from './pages/CartPage';
 
 function App() {
 
@@ -8,6 +9,10 @@ function App() {
       {
         path: "/",
         element: <Home/>
+      },
+      {
+        path: "/cart",
+        element: <CartPage/>
       }
     ])
   return (

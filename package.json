@@ -1,5 +1,6 @@
 {
   "name": "waseeh",
+  "proxy": "https://localhost/wp",
   "private": true,
   "version": "0.0.0",
   "type": "module",

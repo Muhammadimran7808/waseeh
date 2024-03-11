@@ -122,3 +122,18 @@ footer {
     border-radius: 3px;
 
 }
+
+/* secondary footer */
+.secondary-footer {
+    background-color: #232323;
+    color: #969696;
+    padding: 3rem;
+}
+
+.secondary-footer p,
+.secondary-footer a {
+    color: #969696;
+    text-decoration: none;
+    margin-left: 5rem;
+    font-size: 12px;
+}

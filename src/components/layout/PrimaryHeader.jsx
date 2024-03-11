@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { Badge } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const PrimaryHeader = () => {
+  const navigate = useNavigate();
   return (
     <div className="py-4">
       <div className="md:w-4/5 sm:px-5 mx-auto flex flex-wrap gap-3 sm:justify-end justify-center">
@@ -31,7 +33,10 @@ const PrimaryHeader = () => {
           />
         </Link>
 
-        <div className="flex gap-6">
+        <div
+          className="flex gap-6 cursor-pointer"
+          onClick={() => navigate("/cart")}
+        >
           <div className="text-[13px]">
             <Badge count={1} className="flex items-center gap-2">
               <LiaShoppingBagSolid size={24} />

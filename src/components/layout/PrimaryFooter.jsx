@@ -1,9 +1,5 @@
 import React from "react";
 import "../../assets/primaryfooter.css";
-import { CiFacebook } from "react-icons/ci";
-import { ImTwitter } from "react-icons/im";
-import { FaInstagram } from "react-icons/fa";
-import { FaPinterestP } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const PrimaryFooter = () => {
@@ -89,14 +85,14 @@ const PrimaryFooter = () => {
             <div>
               <h3>Get Connected</h3>
               <div className="flex gap-2 items-center">
-                <span className=" rounded-[50%]  hover:bg-blue-900">
-                  <i class="fa-brands fa-facebook fa-2xl hover:text-white"></i>
+                <span className=" rounded-[50%]  hover:bg-white">
+                  <i class="fa-brands fa-facebook fa-2xl hover:text-blue-900"></i>
                 </span>
                 <span className=" rounded-[50%]  hover:bg-blue-900">
                   <i class="fa-brands fa-square-instagram fa-2xl hover:text-white"></i>
                 </span>
-                <span className=" rounded-[50%]  hover:bg-blue-900">
-                  <i class="fa-brands fa-pinterest fa-2xl hover:text-white"></i>
+                <span className=" rounded-[50%]  hover:bg-white">
+                  <i class="fa-brands fa-pinterest fa-2xl hover:text-red-700"></i>
                 </span>
                 <span className=" rounded-[50%]  hover:bg-blue-900">
                   <i class="fa-brands fa-github fa-2xl hover:text-white"></i>
