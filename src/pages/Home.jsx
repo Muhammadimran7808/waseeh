@@ -1301,7 +1301,7 @@ const Home = () => {
   const getProducts = async () => {
     try {
       const res = await axios.get(
-        "http://localhost/wp/wp-json/wc/v3/products",
+        "https://localhost/wp/wp-json/wc/v3/products",
         {
           headers: {
             Authorization: `Basic ${apikey()}`,

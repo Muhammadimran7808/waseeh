@@ -1,6 +1,5 @@
 {
   "name": "waseeh",
-  "proxy": "https://localhost/wp",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "proxy": "https://localhost/Zainsite"
+
   },
   "dependencies": {
     "antd": "^5.15.1",
