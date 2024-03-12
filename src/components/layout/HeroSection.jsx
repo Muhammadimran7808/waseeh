@@ -18,7 +18,7 @@ const HeroSection = () => {
   return (
     <>
       <div className="">
-        <Fade>
+        <Fade indicators={true} >
           {fadeImages.map((fadeImage, index) => (
             <div key={index}>
               <img style={{ width: "100%" }} src={fadeImage.url} />

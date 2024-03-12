@@ -86,19 +86,19 @@ const PrimaryFooter = () => {
               <h3>Get Connected</h3>
               <div className="flex gap-2 items-center">
                 <span className=" rounded-[50%]  hover:bg-white">
-                  <i class="fa-brands fa-facebook fa-2xl hover:text-blue-900"></i>
+                  <i className="fa-brands fa-facebook fa-2xl hover:text-blue-900"></i>
                 </span>
                 <span className=" rounded-[50%]  hover:bg-blue-900">
-                  <i class="fa-brands fa-square-instagram fa-2xl hover:text-white"></i>
+                  <i className="fa-brands fa-square-instagram fa-2xl hover:text-white"></i>
                 </span>
                 <span className=" rounded-[50%]  hover:bg-white">
-                  <i class="fa-brands fa-pinterest fa-2xl hover:text-red-700"></i>
+                  <i className="fa-brands fa-pinterest fa-2xl hover:text-red-700"></i>
                 </span>
                 <span className=" rounded-[50%]  hover:bg-blue-900">
-                  <i class="fa-brands fa-github fa-2xl hover:text-white"></i>
+                  <i className="fa-brands fa-github fa-2xl hover:text-white"></i>
                 </span>
                 <span className=" rounded-[50%]  hover:bg-blue-900">
-                  <i class="fa-brands fa-linkedin fa-2xl hover:text-white"></i>
+                  <i className="fa-brands fa-linkedin fa-2xl hover:text-white"></i>
                 </span>
               </div>
             </div>

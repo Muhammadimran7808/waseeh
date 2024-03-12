@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import { Modal } from "antd";
 import { useModal } from "../../context/modal";
 import ProductQuantityCounter from "../ProductQuantityCounter";
+import { Slide } from "react-slideshow-image";
+import { useCart } from "../../context/cart";
+import toast from "react-hot-toast";
 
 const ProductQuickView = ({ product }) => {
   const [modalOpen, setModalOpen] = useModal();
   const [count, setCount] = useState(1);
+  const [cart, setCart] = useCart();
 
   const setDecrease = () => {
     count > 1 ? setCount(count - 1) : setCount(1);
@@ -20,27 +24,32 @@ const ProductQuickView = ({ product }) => {
         open={modalOpen}
         footer={null}
         onOk={() => setModalOpen(false)}
-        onCancel={() => setModalOpen(false)}
-        width={"60%"}
+        onCancel={() => {
+          setModalOpen(false), setCount(1);
+        }}
+        width={"65%"}
       >
-        <div className="flex gap-8">
+        <div className="flex gap-8 pr-5">
           <div className="w-[400px]">
             {product?.images?.length > 0 && (
-              <img
-                src={product.images[0].src}
-                alt={product.images[0].alt}
-                className="w-full h-[300px] object-cover "
-              />
+              <Slide transitionDuration={600} indicators>
+                {product?.images?.map((image, index) => (
+                  <div key={index} className="w-full h-[300px]">
+                    <img
+                      src={image.src}
+                      alt=""
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                ))}
+              </Slide>
             )}
           </div>
+
           <div>
             <div className="text-center text-xl font-semibold">
               {product.name}
             </div>
-            <div
-              className="mt-2 px-1 text-[13px] tracking-wide text-gray-700 font-[550]"
-              dangerouslySetInnerHTML={{ __html: product.description }}
-            ></div>
 
             <div className="flex gap-8 mt-4">
               <div>Availability :</div>
@@ -67,7 +76,17 @@ const ProductQuickView = ({ product }) => {
               <div>Subtotal : Rs.{product.price * count}</div>
             </div>
 
-            <div className="mt-4">
+            <div
+              onClick={() => {
+                setCart([...cart, product]);
+                localStorage.setItem(
+                  "cart",
+                  JSON.stringify([...cart, product])
+                );
+                toast.success("Item added to cart");
+              }}
+              className="mt-4"
+            >
               <button className="bg-[#000] text-white hover:bg-white hover:text-black border border-black px-10 py-3 uppercase mr-7">
                 Add to cart
               </button>
