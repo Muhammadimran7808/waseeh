@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <CartProvider>
       <ModalProvider>
-        <App />
+          <App />
         <Toaster />
       </ModalProvider>
     </CartProvider>

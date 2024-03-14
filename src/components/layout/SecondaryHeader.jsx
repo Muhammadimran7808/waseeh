@@ -6,14 +6,13 @@ const SecondaryHeader = () => {
     <div className="secondary-header">
       <nav className="navbar">
         <ul className="unorderd-list md:justify-center">
-        
           <li className="dropdown">
-            <Link to={""}>Furniture</Link>
+            <Link to={"/collection/furniture"}>Furniture</Link>
             <div className="dropdown-content pt-5 ">
               <div className="flex gap-4 justify-around mx-auto md:w-[60%]">
                 <ol>
                   <li>
-                    <div className="px-[12px] text-[#232323] hover:text-[#F58634]">
+                    <div className="px-[12px] font-bold text-[#232323] hover:text-[#F58634]">
                       TABLES
                     </div>
                     <Link to="">
@@ -39,7 +38,7 @@ const SecondaryHeader = () => {
 
                 <ol>
                   <li>
-                    <div className="px-[12px] text-gray-900 hover:text-[#F58634]">
+                    <div className="px-[12px] font-bold text-gray-900 hover:text-[#F58634]">
                       RACKS
                     </div>
                     <Link to={""}>
@@ -62,7 +61,7 @@ const SecondaryHeader = () => {
 
                 <ol>
                   <li>
-                    <div className="px-[12px] text-gray-900 hover:text-[#F58634]">
+                    <div className="px-[12px] font-bold text-gray-900 hover:text-[#F58634]">
                       FLOATING SHELVES
                     </div>
                     <Link to={""}>Animal Floating Shelves</Link>
@@ -75,7 +74,7 @@ const SecondaryHeader = () => {
 
                 <ol>
                   <li>
-                    <div className="px-[12px] text-gray-900 hover:text-[#F58634]">
+                    <div className="px-[12px] font-bold text-gray-900 hover:text-[#F58634]">
                       COATS & SHOES
                     </div>
                     <Link to={""}>Coat Organizers</Link>
@@ -132,7 +131,7 @@ const SecondaryHeader = () => {
           <li className="dropdown">
             <Link to={""}>Mix &amp; match</Link>
           </li>
-          
+
           <li className="dropdown">
             <Link to={""}>Our Specialization</Link>
             <div className="dropdown-content">

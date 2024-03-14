@@ -36,11 +36,8 @@ const PrimaryHeader = () => {
           />
         </Link>
 
-        <div
-          className="flex gap-6 cursor-pointer"
-          onClick={() => navigate("/cart")}
-        >
-          <div className="text-[13px]">
+        <div className="flex gap-6 cursor-pointer">
+          <div onClick={() => navigate("/cart")} className="text-[13px]">
             <Badge count={cart?.length} className="flex items-center gap-2">
               <LiaShoppingBagSolid size={24} />
               <div className="sm:block hidden">Shopping Cart</div>

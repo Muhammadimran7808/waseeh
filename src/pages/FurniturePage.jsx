@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/layout/Layout";
-import HeroSection from "../components/layout/HeroSection";
 import axios from "axios";
 import { BiSolidHeartCircle } from "react-icons/bi";
 import { useModal } from "../context/modal";
@@ -9,7 +8,7 @@ import { apikeys } from "../configuration/apikey";
 import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
 
-const Home = () => {
+const FurniturePage = () => {
   const [modalOpen, setModalOpen] = useModal();
   const [quickViewProduct, setquickViewProduct] = useState([]);
   const [cart, setCart] = useCart();
@@ -22,12 +21,15 @@ const Home = () => {
   const getProducts = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`${siteURl}/wp-json/wc/v3/products`, {
-        headers: {
-          Authorization: `Basic ${apikeys()}`,
-          "content-type": "application/json",
-        },
-      });
+      const res = await axios.get(
+        `${siteURl}/wp-json/wc/v3/products?category=24`,
+        {
+          headers: {
+            Authorization: `Basic ${apikeys()}`,
+            "content-type": "application/json",
+          },
+        }
+      );
       if (res?.status === 200) {
         setProducts(res?.data);
       }
@@ -41,14 +43,13 @@ const Home = () => {
   useEffect(() => {
     getProducts();
   }, []);
+
   return (
     <Layout>
-      <HeroSection />
-
       <div>
-        <h1 className="text-center text-2xl font-semibold my-8">
-          NEW ARRIVALS
-        </h1>
+        <div className="w-[70%] my-10 mx-auto">
+          <h1 className="text-2xl font-semibold">Furniture</h1>
+        </div>
         {/* product container */}
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-5 items-center md:w-[85%] sm:w-[90%] sm:mx-auto">
           {loading ? (
@@ -145,4 +146,5 @@ const Home = () => {
     </Layout>
   );
 };
-export default Home;
+
+export default FurniturePage;
